@@ -1,0 +1,28 @@
+#f = (g+h) - (i+j)
+# $t0 f
+# $t1 g
+# $t2 h
+# $t3 i
+# $t4 j
+	.data
+	
+		g: .word 5
+		f: .word 0
+	.text
+	.globl main
+	main:
+	la $s0, g
+	lw $t1, 0($s0)
+	li $t1,5
+	li $t2,3
+	li $t3,2
+	li $t4,1
+	
+	add $t5, $t1, $t2
+	add $t6, $t3, $t4
+	sub $t0, $t5, $t6
+	
+	la $s1, f
+	sw $t0, 0($s1)
+	
+
