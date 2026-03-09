@@ -1,0 +1,16 @@
+.data
+	x: .word 15
+	y: .byte 5
+	z: .word 0
+.text
+.globl main
+
+main:
+	la $s0,x    //ponteiro
+	lw $t0,0($s0)  //coloca em t0 o conteudo de onde o ponteiro ta apontando
+	la $s1,y            //assim por diante
+	lb $t1,0($s1)      //aq lb por ser byte
+	la $s2,z
+	lw $t2,0($s2)        //aq lw por ser word
+	add $t2,$t0,$t1      //aq soma t1 e t0 e coloca em t2
+	sw $t2,0($s2)        // aq e aos contrario os operando, ele pega o conteudo de t2 e joga pra dentro de onde o ponteiro s2 ta apontando
