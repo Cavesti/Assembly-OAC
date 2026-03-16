@@ -1,0 +1,31 @@
+.data
+	rgb: .word 0XFFAA00, 0XA8A628, 0XB07E09
+	g: .word 0,0,0,
+	
+.text	
+.globl main
+	main:
+	la $s0,rgb
+	la $s1,g
+	#agora e a mascara, separar o pedaco do meio(g)que eu quero do valor
+	#de cada um dos hexadecimal la em cima
+	li $t6, 0X00FF00
+	lw $t0, 0($s0)
+	and $t0, $t0, $t6
+	srl $t0, $t0,8
+	sw $t0,0($s1)
+	
+	
+	lw $t0, 4($s0)
+	and $t0, $t0, $t6
+	srl $t0,$t0,8
+	sw $t0,4($s1)
+	
+	
+	
+	lw $t0, 8($s0)
+	and $t0, $t0, $t6
+	srl $t0,$t0,8
+	sw $t0,8($s1)
+
+  #o li e o negocio da mascara, so usa uma vez
