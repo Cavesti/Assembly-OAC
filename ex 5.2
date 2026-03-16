@@ -1,0 +1,15 @@
+// fazer um deslocamento pra esquerda em 3, fazendo com que o valor original seja multiplicado por 2^3
+
+
+.data
+	v: .byte 0x0E
+	
+.text
+.globl main
+	main:
+	la $s0,v
+	lb $t0,0($s0)
+	
+	sll $t1,$t0, 3
+	
+	
